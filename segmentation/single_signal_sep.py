@@ -11,7 +11,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec
 
-data_file = "./touch_events.csv"
+data_file = "../touch_events.csv"
 
 # Load appointed signal data : event
 def load_data(filename):
@@ -102,6 +102,8 @@ def draw_subplots(data, seg_idx):
         ax[-1].plot(x, dim, "g")
         ax[-1].vlines(idx, ymin, ymax, colors="r", linestyles="dashed")
         ax[-1].axis(xy_lim)
+
+    # save plot with subplots
     fig1.savefig("100-dim_seg_show.png")
 
 # Main function
@@ -118,5 +120,5 @@ if __name__ == "__main__":
         seg_idx.append(tmp_idx)
 #    seg_idx = np.array(seg_idx).astype(int)
 
-    # draw subplots for data
+    # draw subplots for data, out picture file : 100-dim_seg_show.png
     draw_subplots(data, seg_idx)
